@@ -12,7 +12,7 @@ export default function ContactForm() {
     if (!formRef.current) return
 
     // Honeypot check
-    const honeypot = formRef.current.querySelector<HTMLInputElement>('[name="website"]')
+    const honeypot = formRef.current.querySelector<HTMLInputElement>('[name="hp_trap"]')
     if (honeypot && honeypot.value) return
 
     setStatus('sending')
@@ -21,7 +21,8 @@ export default function ContactForm() {
       await sendContactForm(formRef.current)
       setStatus('success')
       formRef.current.reset()
-    } catch {
+    } catch (err) {
+      console.error('EmailJS error:', err)
       setStatus('error')
     }
   }
@@ -50,7 +51,7 @@ export default function ContactForm() {
     <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
       {/* Honeypot — hidden from real users */}
       <div className="absolute opacity-0 pointer-events-none" aria-hidden="true">
-        <input type="text" name="website" tabIndex={-1} autoComplete="off" />
+        <input type="text" name="hp_trap" tabIndex={-1} autoComplete="nope" />
       </div>
 
       <div>
@@ -63,7 +64,7 @@ export default function ContactForm() {
           type="text"
           required
           className="w-full rounded-lg border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 transition-colors"
-          placeholder="Your name"
+          placeholder="Your Name"
         />
       </div>
 
