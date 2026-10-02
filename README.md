@@ -18,7 +18,7 @@ src/
 ├── components/        # Reusable UI components
 │   ├── CTASection.tsx
 │   ├── ContactForm.tsx
-│   ├── FeatureCard.tsx
+│   ├── Logo.tsx
 │   ├── Footer.tsx
 │   ├── Navbar.tsx
 │   ├── Section.tsx

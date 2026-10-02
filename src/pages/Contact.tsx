@@ -1,53 +1,54 @@
 import Section from '../components/Section'
 import ContactForm from '../components/ContactForm'
 
+const include = [
+  'What you want to build',
+  'The business problem behind it',
+  'Any existing systems or tools involved',
+  'Timeline and budget range, if you have them',
+]
+
+const nextSteps = [
+  'We read your message and look into the problem.',
+  'We set up a call to go through requirements.',
+  'You get a scope document with approach, timeline, and cost.',
+]
+
 export default function Contact() {
   return (
     <Section
       title="Get in touch"
-      subtitle="Describe your project and we'll follow up within one business day."
+      subtitle="Tell us about your project and we'll reply within one business day."
     >
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        <div>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+        <div className="lg:col-span-7">
           <ContactForm />
         </div>
 
-        <div className="space-y-8">
-          <div className="rounded-xl border border-white/10 bg-white/[0.02] p-6">
-            <h3 className="text-lg font-semibold text-white mb-4">What to include</h3>
-            <ul className="space-y-3">
-              {[
-                'A brief description of what you want to build',
-                'The business problem you\'re trying to solve',
-                'Any existing systems or tools involved',
-                'Your timeline and budget range, if known',
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-3 text-sm text-slate-400">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 text-blue-400 mt-0.5 shrink-0">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                  </svg>
+        <div className="lg:col-span-5 space-y-12">
+          <div>
+            <h3 className="text-sm font-semibold text-neutral-500 mb-2">Helpful to include</h3>
+            <ul className="border-t border-white/10">
+              {include.map((item) => (
+                <li key={item} className="py-4 border-b border-white/10 text-neutral-200">
                   {item}
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="rounded-xl border border-white/10 bg-white/[0.02] p-6">
-            <h3 className="text-lg font-semibold text-white mb-4">What happens next</h3>
-            <div className="space-y-4">
-              {[
-                { step: '1', text: 'We review your message and research the problem space.' },
-                { step: '2', text: 'We schedule a call to discuss requirements in detail.' },
-                { step: '3', text: 'We provide a scope document with approach, timeline, and cost.' },
-              ].map((item) => (
-                <div key={item.step} className="flex items-start gap-3">
-                  <span className="w-6 h-6 rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center shrink-0 text-xs font-semibold">
-                    {item.step}
+          <div>
+            <h3 className="text-sm font-semibold text-neutral-500 mb-2">What happens next</h3>
+            <ol className="border-t border-white/10">
+              {nextSteps.map((text, index) => (
+                <li key={text} className="flex gap-5 py-4 border-b border-white/10">
+                  <span className="text-sm font-semibold text-accent pt-0.5">
+                    {String(index + 1).padStart(2, '0')}
                   </span>
-                  <p className="text-sm text-slate-400">{item.text}</p>
-                </div>
+                  <span className="text-neutral-200">{text}</span>
+                </li>
               ))}
-            </div>
+            </ol>
           </div>
         </div>
       </div>
