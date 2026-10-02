@@ -64,6 +64,7 @@ export default function Services() {
   return (
     <>
       <Section
+        as="h1"
         title="Services"
         subtitle="What we build, and what each kind of engagement usually includes."
       >

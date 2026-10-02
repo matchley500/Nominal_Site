@@ -46,6 +46,7 @@ export default function About() {
   return (
     <>
       <Section
+        as="h1"
         title="About Nominal"
         subtitle="We're a software engineering firm that builds practical systems for businesses."
       >

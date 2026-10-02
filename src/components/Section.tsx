@@ -5,11 +5,13 @@ interface SectionProps {
   title?: string
   subtitle?: string
   tone?: 'dark' | 'light'
+  // Use 'h1' when the section is the top of a page
+  as?: 'h1' | 'h2'
   className?: string
   id?: string
 }
 
-export default function Section({ children, title, subtitle, tone = 'dark', className = '', id }: SectionProps) {
+export default function Section({ children, title, subtitle, tone = 'dark', as: Heading = 'h2', className = '', id }: SectionProps) {
   const light = tone === 'light'
 
   return (
@@ -21,9 +23,9 @@ export default function Section({ children, title, subtitle, tone = 'dark', clas
         {(title || subtitle) && (
           <div className="mb-16 max-w-3xl">
             {title && (
-              <h2 className="text-4xl md:text-6xl font-semibold tracking-display leading-[1.02]">
+              <Heading className="text-4xl md:text-6xl font-semibold tracking-display leading-[1.02]">
                 {title}
-              </h2>
+              </Heading>
             )}
             {subtitle && (
               <p className={`mt-6 text-lg md:text-xl leading-relaxed ${light ? 'text-neutral-600' : 'text-neutral-400'}`}>

@@ -17,6 +17,7 @@ const nextSteps = [
 export default function Contact() {
   return (
     <Section
+      as="h1"
       title="Get in touch"
       subtitle="Tell us about your project and we'll reply within one business day."
     >

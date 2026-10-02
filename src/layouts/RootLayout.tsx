@@ -2,9 +2,12 @@ import { Outlet, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import { usePageMeta } from '../lib/usePageMeta'
 
 export default function RootLayout() {
   const { pathname } = useLocation()
+
+  usePageMeta(pathname)
 
   useEffect(() => {
     window.scrollTo(0, 0)
