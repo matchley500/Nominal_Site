@@ -18,7 +18,7 @@ src/
 ├── components/        # Reusable UI components
 │   ├── CTASection.tsx
 │   ├── ContactForm.tsx
-│   ├── FeatureCard.tsx
+│   ├── Logo.tsx
 │   ├── Footer.tsx
 │   ├── Navbar.tsx
 │   ├── Section.tsx
@@ -92,6 +92,6 @@ npm run preview
 
 ## Deployment
 
-The site is configured for Vercel. The `vercel.json` includes a rewrite rule to support client-side routing (all paths fall back to `index.html`).
+The site is configured for Vercel. `npm run build` prerenders every route in `src/lib/seo.ts` to static HTML (plus `404.html`, `sitemap.xml`, and `robots.txt`) via `scripts/prerender.js`. `vercel.json` enables clean URLs so `/services` serves `services.html`. When adding a page, add its route to `pageMeta` in `src/lib/seo.ts` so it gets prerendered, meta tags, and a sitemap entry.
 
 Push to the `master` branch to trigger a production deploy.

@@ -1,26 +1,44 @@
 import Section from '../components/Section'
 import CTASection from '../components/CTASection'
 
+const approach = [
+  {
+    title: 'Understand first',
+    description:
+      'We take time up front to learn your processes, constraints, and goals before proposing anything technical.',
+  },
+  {
+    title: 'Build in small steps',
+    description:
+      'Working software ships in short cycles, so you can give feedback before assumptions get expensive or hard to undo.',
+  },
+  {
+    title: 'Build to last',
+    description:
+      'Clean code, real tests, and good documentation. The system should keep working long after we hand it over.',
+  },
+]
+
 const values = [
   {
-    title: 'Engineering over marketing',
+    title: 'The work speaks for itself',
     description:
-      'We spend our time building reliable systems, not crafting sales pitches. Our work speaks through the software we deliver and the problems we solve.',
+      'We put our time into building reliable systems. The software we deliver and the problems it solves are our best pitch.',
   },
   {
-    title: 'Practical solutions',
+    title: 'Occam\'s Razor',
     description:
-      'We build what businesses actually need — not the most complex or impressive-sounding system. The right solution is the one that works reliably and is maintainable long-term.',
+      'The simplest solution is often the correct one. Starting from first principles allows us to rethink assumptions and avoid unnecessary complexity.',
   },
   {
-    title: 'Honest communication',
+    title: 'Straight answers',
     description:
-      'If something is going to take longer than expected, or if we think a different approach is better, we say so. Clear communication prevents costly surprises.',
+      'If something will take longer than expected, or we think there\'s a better approach, we tell you early. No surprises on the invoice.',
   },
   {
-    title: 'Long-term thinking',
+    title: 'Built for the long run',
     description:
-      'We design systems to be maintained and extended, not just launched. That means clean architecture, proper testing, documentation, and sensible deployment processes.',
+      'We design systems to be maintained and extended after launch, with sensible architecture, tests, docs, and deployment.',
   },
 ]
 
@@ -28,84 +46,49 @@ export default function About() {
   return (
     <>
       <Section
-        title="About Nominal Technologies"
-        subtitle="We're a software engineering firm focused on building practical, high-impact systems for businesses."
+        as="h1"
+        title="About Nominal"
+        subtitle="We're a software engineering firm that builds practical systems for businesses."
       >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className="space-y-6 text-slate-400 leading-relaxed">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+          <div className="lg:col-span-7 space-y-6 text-lg text-neutral-300 leading-relaxed">
             <p>
-              Nominal Technologies exists because too many businesses are stuck between expensive
-              enterprise software that doesn't fit their operations and generic off-the-shelf tools
-              that require constant workarounds.
+              A lot of businesses get stuck between expensive enterprise software that doesn't fit
+              how they operate and generic tools that need constant workarounds.
             </p>
             <p>
-              We build the software that fills that gap — custom applications, automation systems,
-              integrations, and web platforms designed around how your business actually works.
+              We build solutions for that gap: custom applications, automation, integrations, and web
+              platforms designed around the way your business works.
             </p>
             <p>
-              Our team brings experience across the full stack, from database design and API
-              architecture to modern frontend interfaces and cloud infrastructure. We've built
-              systems for industries ranging from logistics and finance to healthcare and manufacturing.
+              Our team covers the full stack, from database design and API architecture to frontend
+              interfaces and cloud infrastructure.
+            </p>
+            <p>
+              We believe in building thoughtful software people actually want to use. 
             </p>
           </div>
 
-          <div className="rounded-xl border border-white/10 bg-white/[0.02] p-8">
-            <h3 className="text-lg font-semibold text-white mb-6">Our approach</h3>
-            <div className="space-y-5">
-              <div className="flex items-start gap-4">
-                <div className="w-8 h-8 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center shrink-0 mt-0.5">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-                  </svg>
+          <div className="lg:col-span-5">
+            <h3 className="text-sm font-semibold text-neutral-500 mb-2">Our approach</h3>
+            <div className="border-t border-white/10">
+              {approach.map((item) => (
+                <div key={item.title} className="py-6 border-b border-white/10">
+                  <h4 className="text-xl font-semibold tracking-tight text-white">{item.title}</h4>
+                  <p className="text-neutral-400 mt-2 leading-relaxed">{item.description}</p>
                 </div>
-                <div>
-                  <h4 className="text-sm font-semibold text-white">Understand first</h4>
-                  <p className="text-sm text-slate-400 mt-1">
-                    We invest time upfront to understand your business processes, constraints, and goals before proposing a technical solution.
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="w-8 h-8 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center shrink-0 mt-0.5">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="text-sm font-semibold text-white">Build iteratively</h4>
-                  <p className="text-sm text-slate-400 mt-1">
-                    Ship working software in short cycles so you can see progress and provide feedback before assumptions become expensive.
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="w-8 h-8 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center shrink-0 mt-0.5">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="text-sm font-semibold text-white">Deliver for the long term</h4>
-                  <p className="text-sm text-slate-400 mt-1">
-                    Clean code, proper testing, and thorough documentation. The system should outlast our engagement.
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </Section>
 
-      {/* Values */}
-      <Section
-        title="What we believe"
-        className="border-t border-white/5"
-      >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <Section tone="light" title="What we believe">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
           {values.map((value) => (
-            <div key={value.title}>
-              <h3 className="text-lg font-semibold text-white mb-2">{value.title}</h3>
-              <p className="text-sm text-slate-400 leading-relaxed">{value.description}</p>
+            <div key={value.title} className="border-t border-neutral-950 pt-6">
+              <h3 className="text-2xl font-semibold tracking-tight mb-3">{value.title}</h3>
+              <p className="text-neutral-600 leading-relaxed">{value.description}</p>
             </div>
           ))}
         </div>
@@ -113,7 +96,7 @@ export default function About() {
 
       <CTASection
         heading="Let's build something that works."
-        description="Tell us about your project. No sales pitch — just a straightforward conversation about what you need."
+        description="Tell us about your project. You'll get a straightforward conversation about what you need."
       />
     </>
   )

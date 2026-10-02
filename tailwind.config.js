@@ -6,27 +6,21 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        // Brand cyan. Use for primary actions and one highlight per view, not decoration.
+        accent: {
+          DEFAULT: '#22D3EE',
+          hover: '#67E8F9',
+          // Darker cyan for text on light backgrounds (meets contrast on paper)
+          ink: '#0E7490',
+        },
+        paper: '#F4F4F1',
+      },
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['"Instrument Sans"', 'system-ui', '-apple-system', 'sans-serif'],
       },
-      animation: {
-        'fade-in': 'fadeIn 0.6s ease-out forwards',
-        'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
-        'slide-in-left': 'slideInLeft 0.6s ease-out forwards',
-      },
-      keyframes: {
-        fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
-        },
-        fadeInUp: {
-          '0%': { opacity: '0', transform: 'translateY(20px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
-        slideInLeft: {
-          '0%': { opacity: '0', transform: 'translateX(-20px)' },
-          '100%': { opacity: '1', transform: 'translateX(0)' },
-        },
+      letterSpacing: {
+        display: '-0.04em',
       },
     },
   },

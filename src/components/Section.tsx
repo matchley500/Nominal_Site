@@ -4,23 +4,31 @@ interface SectionProps {
   children: ReactNode
   title?: string
   subtitle?: string
+  tone?: 'dark' | 'light'
+  // Use 'h1' when the section is the top of a page
+  as?: 'h1' | 'h2'
   className?: string
   id?: string
 }
 
-export default function Section({ children, title, subtitle, className = '', id }: SectionProps) {
+export default function Section({ children, title, subtitle, tone = 'dark', as: Heading = 'h2', className = '', id }: SectionProps) {
+  const light = tone === 'light'
+
   return (
-    <section id={id} className={`py-20 md:py-28 ${className}`}>
+    <section
+      id={id}
+      className={`py-24 md:py-32 ${light ? 'bg-paper text-neutral-950' : 'text-white'} ${className}`}
+    >
       <div className="max-w-6xl mx-auto px-6">
         {(title || subtitle) && (
-          <div className="mb-14 max-w-2xl">
+          <div className="mb-16 max-w-3xl">
             {title && (
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">
+              <Heading className="text-4xl md:text-6xl font-semibold tracking-display leading-[1.02]">
                 {title}
-              </h2>
+              </Heading>
             )}
             {subtitle && (
-              <p className="mt-4 text-lg text-slate-400">
+              <p className={`mt-6 text-lg md:text-xl leading-relaxed ${light ? 'text-neutral-600' : 'text-neutral-400'}`}>
                 {subtitle}
               </p>
             )}

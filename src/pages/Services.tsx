@@ -3,58 +3,59 @@ import CTASection from '../components/CTASection'
 
 const services = [
   {
-    title: 'Custom Software Development',
+    title: 'Custom software',
     description:
-      'When off-the-shelf software doesn\'t fit your operations, we build what does. We design and develop applications around your specific data models, business rules, and user workflows.',
+      'When off-the-shelf software doesn\'t fit how you operate, we build something that does. Each application is designed around your data, your business rules, and the people who use it every day. That can include AI features built on OpenAI or Anthropic models, wired into your own data and workflows.',
     details: [
-      'Desktop and web-based business applications',
+      'Desktop and web business applications',
       'Internal tools and admin panels',
-      'Data processing and transformation pipelines',
+      'AI integrations with OpenAI and Anthropic',
+      'Data processing pipelines',
       'Legacy system modernization and migration',
     ],
   },
   {
-    title: 'Web Applications',
+    title: 'Web applications',
     description:
-      'Full-stack web platforms built with modern frameworks, clean architecture, and production-grade infrastructure. From single-page applications to complex multi-tenant platforms.',
+      'Full-stack web platforms with clean architecture and production-grade infrastructure, from focused single-page apps to multi-tenant platforms.',
     details: [
       'React, TypeScript, and modern frontend stacks',
-      'RESTful and GraphQL API design',
-      'Authentication, authorization, and role management',
-      'Real-time features and data synchronization',
+      'REST and GraphQL API design',
+      'Authentication, permissions, and roles',
+      'Real-time features and data sync',
     ],
   },
   {
-    title: 'Automation & Workflow Systems',
+    title: 'Automation',
     description:
-      'We identify repetitive manual processes in your business and replace them with reliable automated systems — reducing errors, saving time, and freeing your team to do higher-value work.',
+      'We find the repetitive manual work in your operations and replace it with automated systems. Fewer errors, and more time for your team to spend on work that matters.',
     details: [
       'Data sync between platforms and databases',
       'Approval and routing workflows',
-      'Scheduled jobs and event-driven automation',
+      'Scheduled and event-driven jobs',
       'Document generation and processing',
     ],
   },
   {
-    title: 'API Integrations',
+    title: 'API integrations',
     description:
-      'Most businesses run on multiple platforms that don\'t talk to each other. We build the connective layer — clean, well-documented integrations that keep your systems in sync.',
+      'Most businesses run on several platforms that don\'t talk to each other. We build well-documented integrations that keep them in sync.',
     details: [
-      'CRM, ERP, and accounting system integrations',
-      'Payment processor and billing connections',
-      'Third-party API consumption and orchestration',
-      'Webhook handlers and event routing',
+      'CRM, ERP, and accounting integrations',
+      'Payment and billing connections',
+      'Third-party API orchestration',
+      'Webhook handling and event routing',
     ],
   },
   {
-    title: 'System Architecture & Consulting',
+    title: 'Architecture and consulting',
     description:
-      'Before building, we help you think through the design. Architecture reviews, technology selection, scalability planning, and technical due diligence for teams that want to get it right the first time.',
+      'Help with the design before anything gets built. Architecture reviews, stack selection, scalability planning, and technical due diligence.',
     details: [
-      'System design and architecture documentation',
-      'Technology stack evaluation and selection',
-      'Database modeling and data architecture',
-      'Infrastructure planning and cost optimization',
+      'System design and documentation',
+      'Technology evaluation and selection',
+      'Database and data architecture',
+      'Infrastructure planning and cost control',
     ],
   },
 ]
@@ -63,33 +64,32 @@ export default function Services() {
   return (
     <>
       <Section
+        as="h1"
         title="Services"
-        subtitle="Detailed breakdown of what we build and how we approach each type of engagement."
+        subtitle="What we build, and what each kind of engagement usually includes."
       >
-        <div className="space-y-16">
+        <div className="border-t border-white/10">
           {services.map((service, index) => (
             <div
               key={service.title}
-              className={`grid grid-cols-1 lg:grid-cols-2 gap-8 ${
-                index !== 0 ? 'pt-16 border-t border-white/5' : ''
-              }`}
+              className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 py-12 md:py-16 border-b border-white/10"
             >
-              <div>
-                <h3 className="text-2xl font-bold text-white mb-4">{service.title}</h3>
-                <p className="text-slate-400 leading-relaxed">{service.description}</p>
+              <div className="lg:col-span-1 text-sm font-semibold text-neutral-500 pt-2">
+                {String(index + 1).padStart(2, '0')}
               </div>
-              <div>
-                <ul className="space-y-3">
-                  {service.details.map((detail) => (
-                    <li key={detail} className="flex items-start gap-3 text-sm text-slate-300">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 text-blue-400 mt-0.5 shrink-0">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                      </svg>
-                      {detail}
-                    </li>
-                  ))}
-                </ul>
+              <div className="lg:col-span-6">
+                <h3 className="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-5">
+                  {service.title}
+                </h3>
+                <p className="text-neutral-400 leading-relaxed text-lg">{service.description}</p>
               </div>
+              <ul className="lg:col-span-5 lg:pt-3">
+                {service.details.map((detail) => (
+                  <li key={detail} className="py-3 border-b border-white/[0.06] last:border-b-0 text-neutral-200">
+                    {detail}
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
@@ -97,7 +97,7 @@ export default function Services() {
 
       <CTASection
         heading="Ready to build?"
-        description="Describe your project and we'll scope out the right approach."
+        description="Describe your project and we'll come back with a recommended approach."
       />
     </>
   )
