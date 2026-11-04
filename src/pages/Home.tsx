@@ -59,7 +59,7 @@ const approach = [
 
 const exampleProjects = [
   'Internal business tools',
-  'Multi-tenant SaaS platforms',
+  'SaaS platforms',
   'CRM and ERP integrations',
   'Operations dashboards and reporting',
   'REST and event-driven APIs',
