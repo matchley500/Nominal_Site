@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import Section from '../components/Section'
-import TechBadge from '../components/TechBadge'
 import CTASection from '../components/CTASection'
 
 const capabilities = [
@@ -60,17 +59,11 @@ const approach = [
 
 const exampleProjects = [
   'Internal business tools',
-  'Multi-tenant SaaS platforms',
+  'SaaS platforms',
   'CRM and ERP integrations',
   'Operations dashboards and reporting',
   'REST and event-driven APIs',
   'Document and workflow automation',
-]
-
-const technologies = [
-  'React', 'TypeScript', 'Node.js', '.NET', 'PostgreSQL', 'Python',
-  'AWS', 'Azure', 'Docker', 'REST', 'GraphQL', 'Redis',
-  'Terraform', 'CI/CD', 'Stripe', 'Zapier',
 ]
 
 export default function Home() {
@@ -139,35 +132,15 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Example work and stack */}
-      <Section>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
-          <div>
-            <h2 className="text-3xl md:text-5xl font-semibold tracking-display leading-[1.05] mb-10">
-              Things we build
-            </h2>
-            <ul className="border-t border-white/10">
-              {exampleProjects.map((project) => (
-                <li key={project} className="py-4 border-b border-white/10 text-lg text-neutral-200">
-                  {project}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h2 className="text-3xl md:text-5xl font-semibold tracking-display leading-[1.05] mb-4">
-              Tools we use
-            </h2>
-            <p className="text-neutral-400 leading-relaxed mb-10 max-w-md">
-              We pick the stack that suits the project and your team. These are the ones we reach for most.
-            </p>
-            <div className="flex flex-wrap gap-2.5">
-              {technologies.map((tech) => (
-                <TechBadge key={tech} name={tech} />
-              ))}
-            </div>
-          </div>
-        </div>
+      {/* Example work */}
+      <Section title="Things we build">
+        <ul className="grid grid-cols-1 md:grid-cols-2 md:gap-x-16 border-t border-white/10">
+          {exampleProjects.map((project) => (
+            <li key={project} className="py-4 border-b border-white/10 text-lg text-neutral-200">
+              {project}
+            </li>
+          ))}
+        </ul>
       </Section>
 
       <CTASection
